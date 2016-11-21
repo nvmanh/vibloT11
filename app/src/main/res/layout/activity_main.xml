@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="viewModel"
+            type="com.nvmanh.viblot11.viewmodel.MainViewModel"
+            />
+        <import type="com.nvmanh.viblot11.util.LayoutManagers" />
+    </data>
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.nvmanh.viblot11.view.MainActivity"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:padding="10dp"
+            android:textColor="@color/colorAccent"
+            app:binding="@{viewModel.bookTitle}"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:hint="This will bind text from your input"
+            android:padding="10dp"
+            android:text="@{viewModel.bookTitle}"
+            android:textColor="@color/colorAccent"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layoutManager="@{LayoutManagers.linear()}"
+            app:items="@{viewModel.items}"
+            />
+    </LinearLayout>
+</layout>
